@@ -1,0 +1,940 @@
+/*--------------------------------------------------------------
+# Custom styles — Francisco Guerrero
+# Extiende la plantilla iPortfolio.
+# --accent se conserva para iconos y rellenos grandes;
+# --accent-text es la variante que sí pasa contraste AA en texto.
+--------------------------------------------------------------*/
+:root {
+  --accent: #149ddd;
+  --accent-text: #0b6d9e;
+  --accent-text-dk: #08557b;
+  --ink: #173b6c;
+  --muted: #5f7391;
+  --line: #e4edf9;
+  --bg-soft: #f5f8fd;
+}
+
+/*--------------------------------------------------------------
+# Accesibilidad — enlace de salto y foco visible
+--------------------------------------------------------------*/
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  background: #fff;
+  color: var(--accent-text-dk);
+  padding: 12px 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  border-radius: 0 0 6px 0;
+}
+.skip-link:focus {
+  left: 0;
+  outline: 3px solid var(--accent-text);
+  outline-offset: 2px;
+}
+
+a { color: var(--accent-text); }
+a:hover { color: var(--accent-text-dk); }
+
+.mobile-nav-toggle {
+  border: 0;
+  padding: 0;
+  outline: revert !important;
+}
+.mobile-nav-toggle:focus-visible {
+  outline: 3px solid #fff !important;
+  outline-offset: 2px;
+}
+
+#navbar .nav-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+  box-shadow: none;
+  color: #fff;
+  border-radius: 4px;
+}
+#navbar .nav-link:focus-visible i { color: #fff; }
+
+.contact .php-email-form input:focus-visible,
+.contact .php-email-form textarea:focus-visible {
+  outline: 3px solid var(--accent-text);
+  outline-offset: 1px;
+  border-color: var(--accent-text);
+  box-shadow: 0 0 0 .2rem rgba(11, 109, 158, .25);
+}
+
+.back-to-top:focus-visible,
+.agents .agent-cta:focus-visible,
+.resume .cv-download:focus-visible,
+.proyecto .btn-demo:focus-visible,
+.proyecto .btn-repo:focus-visible,
+.paper .btn-demo:focus-visible {
+  outline: 3px solid var(--accent-text);
+  outline-offset: 3px;
+}
+
+.back-to-top:hover { background: var(--accent-text); }
+.contact .php-email-form button[type=submit] { background: var(--accent-text); }
+.contact .php-email-form button[type=submit]:hover { background: var(--accent-text-dk); }
+
+/* La plantilla estiliza el nombre del sidebar vía h1; ahora es un div */
+#header .profile .site-name {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.2;
+  text-align: center;
+}
+#header .profile .site-name a { color: #fff; }
+#header .profile .site-name a:hover { color: #fff; text-decoration: none; }
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about .about-img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(5, 13, 24, .1);
+}
+
+/*--------------------------------------------------------------
+# Proyectos
+--------------------------------------------------------------*/
+.proyecto { margin-bottom: 56px; }
+.proyecto:last-child { margin-bottom: 0; }
+
+.proyecto-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+.proyecto-grid--invertido .proyecto-media { order: 2; }
+.proyecto-grid--invertido .proyecto-body { order: 1; }
+
+.proyecto-media {
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 6px 20px rgba(5, 13, 24, .06);
+}
+.proyecto-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.proyecto-media figcaption {
+  margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.proyecto-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.proyecto-head h3 {
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+.proyecto-marca {
+  display: inline-block;
+  margin-left: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-text);
+  background: #dff3fc;
+  padding: 3px 9px;
+  border-radius: 20px;
+  vertical-align: middle;
+}
+.proyecto-estado {
+  font-family: "Poppins", sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.proyecto-estado--activo { color: #0f6b46; background: #dcf5e9; }
+.proyecto-estado--curso  { color: #8a5a00; background: #fdf0d5; }
+
+.proyecto-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #272829;
+  margin-bottom: 16px;
+}
+.proyecto-concepto {
+  font-size: 14px;
+  line-height: 1.72;
+  color: #3d4d63;
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  padding: 16px 18px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 18px;
+}
+.proyecto-concepto strong { color: var(--ink); }
+
+.proyecto-tech {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.proyecto-tech li {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1f5297;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.proyecto-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.proyecto .btn-demo,
+.paper .btn-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--accent-text);
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background .3s;
+}
+.proyecto .btn-demo:hover,
+.paper .btn-demo:hover { background: var(--accent-text-dk); color: #fff; }
+
+.proyecto .btn-repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--accent-text);
+  background: #fff;
+  border: 1px solid var(--accent-text);
+  padding: 9px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background .3s, color .3s;
+}
+.proyecto .btn-repo:hover { background: var(--accent-text); color: #fff; }
+
+.proyecto-nota {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  font-style: italic;
+}
+.proyecto-nota--aviso {
+  display: block;
+  background: #fdf0d5;
+  border-left: 3px solid #d79b1e;
+  color: #6b4a05;
+  font-style: normal;
+  padding: 12px 14px;
+  border-radius: 0 6px 6px 0;
+}
+
+/*--------------------------------------------------------------
+# Research
+--------------------------------------------------------------*/
+.paper {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 32px 34px;
+}
+.paper-tipo {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin-bottom: 10px;
+}
+.paper-titulo {
+  font-family: "Raleway", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+  margin: 0 0 10px 0;
+}
+.paper-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.paper-body p { font-size: 15px; line-height: 1.75; color: #272829; }
+
+.paper-links { margin-top: 22px; }
+
+/*--------------------------------------------------------------
+# Agents — stats strip
+--------------------------------------------------------------*/
+.agents .agents-stats { margin-bottom: 10px; }
+.agents .count-box { padding: 30px; width: 100%; }
+.agents .count-box i {
+  display: block; font-size: 44px; color: var(--accent); float: left; line-height: 0;
+}
+.agents .count-box span {
+  font-size: 48px; line-height: 40px; display: block; font-weight: 700;
+  color: #050d18; margin-left: 60px;
+}
+.agents .count-box p {
+  padding: 15px 0 0 0; margin: 0 0 0 60px;
+  font-family: "Raleway", sans-serif; font-size: 14px; color: #122f57;
+}
+
+/*--------------------------------------------------------------
+# Agents — cards
+--------------------------------------------------------------*/
+.agents .agent-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 28px 26px;
+  margin-bottom: 30px;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.agents .agent-card:hover {
+  transform: translateY(-4px);
+  border-color: #c3e8fa;
+  box-shadow: 0 14px 34px rgba(20, 157, 221, .14);
+}
+.agents .agent-head {
+  display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 18px;
+}
+.agents .agent-icon {
+  flex: 0 0 52px; width: 52px; height: 52px; border-radius: 50%;
+  background: #dff3fc; color: var(--accent-text); font-size: 24px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .3s, color .3s;
+}
+.agents .agent-card:hover .agent-icon { background: var(--accent-text); color: #fff; }
+.agents .agent-tags { text-align: right; line-height: 1; }
+.agents .agent-id {
+  display: block; font-family: "Poppins", sans-serif; font-size: 13px;
+  font-weight: 700; letter-spacing: 2px; color: var(--muted);
+}
+.agents .agent-version {
+  display: inline-block; margin-top: 8px; font-family: "Poppins", sans-serif;
+  font-size: 11px; font-weight: 600; color: var(--accent-text);
+  background: #dff3fc; padding: 3px 10px; border-radius: 20px;
+}
+.agents h2.agent-name, .agents .agent-name {
+  font-family: "Raleway", sans-serif; font-size: 19px; font-weight: 700;
+  color: var(--ink); margin: 0 0 8px 0; line-height: 1.3;
+}
+.agents .agent-tagline {
+  font-size: 14px; font-style: italic; color: #6f7180; line-height: 1.65; margin-bottom: 18px;
+}
+.agents .agent-specs { list-style: none; padding: 0; margin: 0 0 20px 0; }
+.agents .agent-specs li {
+  position: relative; padding-left: 26px; margin-bottom: 10px;
+  font-size: 13.5px; line-height: 1.6; color: #272829;
+}
+.agents .agent-specs li i {
+  position: absolute; left: 0; top: 3px; font-size: 15px; color: var(--accent-text);
+}
+.agents .agent-pipeline {
+  margin-top: auto; padding-top: 16px; border-top: 1px solid #f0f4fa;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.agents .agent-pipeline-label {
+  display: block; width: 100%; font-family: "Poppins", sans-serif; font-size: 10px;
+  font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 4px;
+}
+.agents .agent-pipeline > span:not(.agent-pipeline-label) {
+  font-family: "Poppins", sans-serif; font-size: 10.5px; font-weight: 600;
+  letter-spacing: .3px; color: #1f5297; background: var(--bg-soft);
+  border: 1px solid var(--line); padding: 4px 9px; border-radius: 4px;
+}
+.agents .agent-foot { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.agents .agent-chip {
+  font-family: "Poppins", sans-serif; font-size: 11px; font-weight: 600;
+  color: #fff; background: var(--accent-text); padding: 4px 11px; border-radius: 3px;
+}
+
+.agents .agent-cta {
+  margin-top: 6px; font-family: "Poppins", sans-serif; font-size: 14px;
+  font-weight: 600; color: var(--accent-text); text-decoration: none; transition: color .3s;
+}
+.agents .agent-cta:hover { color: var(--accent-text-dk); }
+.agents .agent-cta i { transition: transform .3s; display: inline-block; }
+.agents .agent-cta:hover i { transform: translateX(4px); }
+
+/*--------------------------------------------------------------
+# Contacto — los rótulos pasaron de h4 a h3
+--------------------------------------------------------------*/
+.contact .info h3 {
+  padding: 0 0 10px 60px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #173b6c;
+  font-family: "Poppins", sans-serif;
+}
+.contact .info p a { color: var(--accent-text); }
+
+/*--------------------------------------------------------------
+# Resume — botón de descarga
+--------------------------------------------------------------*/
+.resume .cv-download {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: "Poppins", sans-serif; font-size: 14px; font-weight: 500;
+  color: #fff; background: var(--accent-text); padding: 12px 32px;
+  border-radius: 50px; text-decoration: none; transition: background .3s;
+}
+.resume .cv-download:hover { background: var(--accent-text-dk); color: #fff; }
+
+/*--------------------------------------------------------------
+# Hero background
+# PLACEHOLDER: para usar una foto propia, cambia la ruta por tu .jpg
+--------------------------------------------------------------*/
+#hero {
+  background: url("../img/hero-bg.svg") center center;
+  background-size: cover;
+}
+
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+@media (max-width: 991px) {
+  .proyecto-grid { grid-template-columns: 1fr; gap: 24px; }
+  .proyecto-grid--invertido .proyecto-media { order: 0; }
+  .proyecto-grid--invertido .proyecto-body { order: 0; }
+  .agents .agent-card { padding: 24px 22px; }
+  .paper { padding: 26px 22px; }
+}
+
+@media (max-width: 768px) {
+  .agents .count-box { padding: 20px; }
+  .agents .count-box span { font-size: 38px; }
+  .proyecto-head h3 { font-size: 21px; }
+  .paper-titulo { font-size: 19px; }
+}
+
+/*--------------------------------------------------------------
+# Movimiento reducido
+--------------------------------------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .agents .agent-card:hover { transform: none; }
+  [data-aos] { opacity: 1 !important; transform: none !important; }
+}
+
+/*--------------------------------------------------------------
+# Research — subtítulos, figuras y cita
+--------------------------------------------------------------*/
+h3.paper-sub, h4.paper-sub, .paper-sub {
+  font-family: "Raleway", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 30px 0 12px 0;
+}
+.paper-figura {
+  margin: 22px 0 24px 0;
+  overflow-x: auto;
+}
+.paper-figura img { min-width: 480px; }
+.paper-cita {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 13px !important;
+  line-height: 1.65;
+  color: var(--muted) !important;
+}
+
+/*--------------------------------------------------------------
+# Contacto — CTAs en lugar del formulario
+--------------------------------------------------------------*/
+.contact .contacto-cta {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 34px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact .contacto-cta h3 {
+  font-family: "Raleway", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+.contact .contacto-cta > p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #272829;
+  margin-bottom: 24px;
+}
+.contact .contacto-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.contact .contacto-botones .btn-demo,
+.contact .contacto-botones .btn-repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 11px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background .3s, color .3s;
+}
+.contact .contacto-botones .btn-demo { color: #fff; background: var(--accent-text); }
+.contact .contacto-botones .btn-demo:hover { background: var(--accent-text-dk); color: #fff; }
+.contact .contacto-botones .btn-repo {
+  color: var(--accent-text); background: #fff; border: 1px solid var(--accent-text);
+}
+.contact .contacto-botones .btn-repo:hover { background: var(--accent-text); color: #fff; }
+.contact .contacto-nota {
+  margin: 20px 0 0 0;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+@media (max-width: 768px) {
+  .contact .contacto-cta { padding: 26px 22px; }
+}
+
+.paper-hallazgo {
+  font-size: 15px !important;
+  line-height: 1.72;
+  color: #3d4d63 !important;
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  padding: 16px 18px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 4px;
+}
+.paper-hallazgo strong { color: var(--ink); }
+.paper .proyecto-links { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/*--------------------------------------------------------------
+# Densidad en móvil
+# La página vive en una sola columna: se aprieta el ritmo vertical
+# sin retirar contenido.
+--------------------------------------------------------------*/
+@media (max-width: 768px) {
+  section { padding: 40px 0; }
+  .section-title { padding-bottom: 20px; }
+  .section-title h2 { font-size: 26px; margin-bottom: 14px; }
+  .section-title p { font-size: 14px; line-height: 1.6; }
+
+  .proyecto { margin-bottom: 34px; }
+  .proyecto-grid { gap: 18px; }
+  .proyecto-media { padding: 10px; }
+  .proyecto-desc { font-size: 14.5px; margin-bottom: 12px; }
+  .proyecto-tech { margin-bottom: 14px; }
+
+  .agents .agent-card { padding: 20px 18px; margin-bottom: 18px; }
+  .agents .agent-head { margin-bottom: 14px; }
+  .agents .agent-tagline { margin-bottom: 14px; }
+  .agents .agent-specs { margin-bottom: 14px; }
+  .agents .agent-specs li { margin-bottom: 7px; line-height: 1.5; }
+  .agents .agent-pipeline { padding-top: 12px; }
+  .agents .agent-foot { margin-top: 10px; }
+  .agents .agents-stats { margin-bottom: 0; }
+  .agents .count-box { padding: 14px 20px; }
+  .agents .count-box p { padding-top: 8px; }
+
+  .resume .resume-item { padding-bottom: 14px; }
+  .resume .resume-title { margin-top: 16px; }
+
+  .paper { padding: 22px 18px; }
+}
+
+/*--------------------------------------------------------------
+# Proyectos especiales
+--------------------------------------------------------------*/
+.especiales {
+  margin-top: 8px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+.especiales-titulo {
+  font-family: "Raleway", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 6px 0;
+}
+.especiales-intro {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 18px;
+  max-width: 62ch;
+}
+.especial-card {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 24px;
+  text-decoration: none;
+  transition: border-color .3s, box-shadow .3s, transform .3s;
+}
+.especial-card:hover {
+  border-color: #c3e8fa;
+  box-shadow: 0 10px 26px rgba(20, 157, 221, .12);
+  transform: translateY(-2px);
+}
+.especial-nombre {
+  display: block;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.especial-desc {
+  display: block;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #272829;
+  margin-bottom: 12px;
+  max-width: 78ch;
+}
+.especial-cta {
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+.especial-card:hover .especial-cta { color: var(--accent-text-dk); }
+.especial-cta i { transition: transform .3s; display: inline-block; }
+.especial-card:hover .especial-cta i { transform: translateX(4px); }
+
+/*--------------------------------------------------------------
+# Índice de automatización — enlace al listado completo
+--------------------------------------------------------------*/
+.agents .agents-indice {
+  text-align: center;
+  margin-top: 6px;
+}
+.agents .agents-indice a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-text);
+  background: #fff;
+  border: 1px solid var(--accent-text);
+  padding: 11px 26px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background .3s, color .3s;
+}
+.agents .agents-indice a:hover { background: var(--accent-text); color: #fff; }
+
+@media (max-width: 768px) {
+  .especial-card { padding: 18px 18px; }
+}
+
+/*--------------------------------------------------------------
+# Fichas de flujo — entrada/salida y tarjetas de índice
+--------------------------------------------------------------*/
+.io-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+.io-bloque {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--muted);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 18px;
+}
+.io-bloque--salida { border-left-color: var(--accent); }
+.io-bloque h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 8px 0;
+}
+.io-bloque--salida h3 { color: var(--accent-text); }
+.io-bloque p { font-size: 14px !important; line-height: 1.6; margin: 0; }
+
+.sub-wrap--ancho { max-width: 1140px; }
+
+a.indice-card { text-decoration: none; }
+a.indice-card .agent-cta { margin-top: auto; padding-top: 16px; }
+a.indice-card:hover { text-decoration: none; }
+a.indice-card:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
+
+.sub-head .agent-foot { margin-top: 16px; }
+
+.agents .agent-interno {
+  font-family: "Poppins", sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .4px;
+  color: var(--muted);
+  margin: -4px 0 10px 0;
+}
+.agents .agent-ficha {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-text);
+  text-decoration: none;
+  transition: color .3s;
+}
+.agents .agent-ficha:hover { color: var(--accent-text-dk); }
+.agents .agent-ficha i { transition: transform .3s; display: inline-block; }
+.agents .agent-ficha:hover i { transform: translateX(4px); }
+
+/*--------------------------------------------------------------
+# Roles de botón y chip, sin depender del ancestro
+# Estaban limitados a .proyecto/.paper/.agents, así que en las
+# sub-páginas los botones salían como texto plano y los chips pegados.
+--------------------------------------------------------------*/
+.btn-demo {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: "Poppins", sans-serif; font-size: 13.5px; font-weight: 500;
+  color: #fff; background: var(--accent-text);
+  padding: 10px 22px; border-radius: 50px;
+  text-decoration: none; transition: background .3s;
+}
+.btn-demo:hover { background: var(--accent-text-dk); color: #fff; }
+
+.btn-repo {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: "Poppins", sans-serif; font-size: 13.5px; font-weight: 500;
+  color: var(--accent-text); background: #fff; border: 1px solid var(--accent-text);
+  padding: 9px 22px; border-radius: 50px;
+  text-decoration: none; transition: background .3s, color .3s;
+}
+.btn-repo:hover { background: var(--accent-text); color: #fff; }
+.btn-demo:focus-visible, .btn-repo:focus-visible {
+  outline: 3px solid var(--accent-text); outline-offset: 3px;
+}
+
+.agent-foot { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.agent-chip {
+  font-family: "Poppins", sans-serif; font-size: 11px; font-weight: 600;
+  color: #fff; background: var(--accent-text);
+  padding: 4px 11px; border-radius: 4px;
+}
+.agents .agent-chip { border-radius: 4px; }
+
+/*--------------------------------------------------------------
+# Medida de lectura — las líneas iban de 101 a 142 caracteres
+--------------------------------------------------------------*/
+.section-title p { max-width: 72ch; }
+/* La plantilla anula el margen inferior del párrafo de sección, porque la
+   pensó para uno solo. Con dos hace falta aire entre ellos, pero no después
+   del último: por eso el margen va en el hermano, no en todos. */
+.section-title p + p { margin-top: 15px; }
+.about .content p { max-width: 78ch; }
+.paper { max-width: 820px; }
+
+/*--------------------------------------------------------------
+# Filas de proyecto: centrado vertical y estado siempre a la derecha
+--------------------------------------------------------------*/
+.proyecto-grid { align-items: center; }
+.proyecto-estado { margin-left: auto; }
+
+/*--------------------------------------------------------------
+# Portada en móvil: el texto antes que la imagen, y bloques más densos
+--------------------------------------------------------------*/
+@media (max-width: 991px) {
+  .proyecto-grid .proyecto-media,
+  .proyecto-grid--invertido .proyecto-media { order: 2; }
+  .proyecto-grid .proyecto-body,
+  .proyecto-grid--invertido .proyecto-body { order: 1; }
+  .about .about-img { height: 380px; object-fit: cover; object-position: top center; }
+}
+@media (max-width: 768px) {
+  .about .about-img { height: 320px; }
+  .agents .agents-stats > [class*="col-"] { flex: 0 0 50%; max-width: 50%; }
+  .agents .count-box i { font-size: 34px; }
+  .agents .count-box span { font-size: 32px; line-height: 30px; margin-left: 46px; }
+  .agents .count-box p { margin-left: 46px; font-size: 13px; }
+}
+
+/*--------------------------------------------------------------
+# Hero: no pegar el título al borde y domar la línea de tipeo
+--------------------------------------------------------------*/
+#hero .hero-container { width: 100%; padding-left: 20px; padding-right: 20px; }
+@media (max-width: 576px) {
+  #hero h1 { font-size: 30px; line-height: 1.15; }
+  #hero p { font-size: 20px; line-height: 1.5; margin-bottom: 30px; }
+  #hero p span { letter-spacing: 0; }
+}
+
+/*--------------------------------------------------------------
+# Acabado de controles
+--------------------------------------------------------------*/
+.back-to-top {
+  width: 44px; height: 44px; right: 20px; bottom: 20px;
+  background: var(--accent-text);
+  transition: background .3s, opacity .3s, visibility .3s;
+}
+.back-to-top:hover { background: var(--accent-text-dk); }
+@media (max-width: 991px) { .back-to-top { bottom: 84px; } }
+
+.especial-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(20,157,221,.14); }
+.especial-card:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
+
+/*--------------------------------------------------------------
+# CV y Contacto: una sola escala tipográfica
+--------------------------------------------------------------*/
+.resume .resume-item h4 {
+  line-height: 1.3; font-size: 17px; letter-spacing: .2px;
+  color: var(--ink); font-family: "Raleway", sans-serif; font-weight: 700;
+}
+.resume .resume-title { color: var(--ink); font-size: 24px; }
+.contact .info h3 { font-family: "Raleway", sans-serif; }
+.contact .contacto-cta { justify-content: flex-start; }
+@media (min-width: 992px) { .resume .row > .col-lg-6:last-child { align-self: start; } }
+
+/*--------------------------------------------------------------
+# Figuras con scroll horizontal: dar señal de que se deslizan
+--------------------------------------------------------------*/
+.paper-figura {
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 12px), transparent 100%);
+          mask-image: linear-gradient(to right, #000 calc(100% - 12px), transparent 100%);
+}
+.paper-figura:hover { -webkit-mask-image: none; mask-image: none; }
+@media (max-width: 991px) {
+  .paper-figura::after {
+    content: "Desliza para ver el diagrama completo →";
+    display: block; margin-top: 8px;
+    font-size: 11.5px; font-style: italic; color: var(--muted);
+  }
+}
+
+/*--------------------------------------------------------------
+# Alternancia de las filas de proyecto, sin modificador en el marcado
+# (nth-of-type cuenta solo los <article>, no el .section-title)
+--------------------------------------------------------------*/
+@media (min-width: 992px) {
+  .proyecto:nth-of-type(even) .proyecto-grid .proyecto-media { order: 2; }
+  .proyecto:nth-of-type(even) .proyecto-grid .proyecto-body  { order: 1; }
+}
+
+/*--------------------------------------------------------------
+# Respirar en el teléfono
+# La plantilla deja 12 px a cada lado y el texto queda pegado al borde;
+# se lleva el margen a los 20 px que ya usa la portada. Y se afloja la
+# densidad que traía el bloque de 768: en un teléfono la página llega
+# como un muro, y conviene que cada bloque se lea de a uno.
+--------------------------------------------------------------*/
+/* El margen angosto de la plantilla arranca en 1199, que es donde se va
+   la barra lateral: la compensación tiene que cubrir el mismo tramo. */
+@media (max-width: 1199px) {
+  .container,
+  .container-fluid { padding-left: 20px; padding-right: 20px; }
+}
+
+@media (max-width: 991px) {
+  /* El riel del CV suma su propio sangrado a la izquierda: se recorta
+     para que el bloque no quede corrido respecto del borde derecho. */
+  .resume .resume-item { padding-left: 16px; padding-bottom: 28px; }
+  .resume .resume-item:last-child { padding-bottom: 8px; }
+  .resume .resume-title { margin-top: 34px; margin-bottom: 18px; }
+  .resume .resume-item h5 { margin-bottom: 12px; }
+  .resume .resume-item ul { padding-left: 18px; }
+  .resume .resume-item ul li { padding-bottom: 12px; line-height: 1.65; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 54px 0; }
+  .section-title { padding-bottom: 26px; }
+  .section-title p + p { margin-top: 18px; }
+  .about .content h3 { margin-top: 26px; }
+  .about .content ul li { padding-bottom: 4px; }
+  .proyecto + .proyecto { margin-top: 8px; }
+}
+
+/*--------------------------------------------------------------
+# Agents — base BI transversal (no es un 6º flujo, es el soporte)
+--------------------------------------------------------------*/
+.agents .agents-soporte {
+  max-width: 820px;
+  margin: 6px auto 18px auto;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+}
+.agents .agents-soporte p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #3d4d63;
+}
+.agents .agents-soporte strong { color: var(--ink); }
