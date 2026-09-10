@@ -1,17 +1,17 @@
 /*--------------------------------------------------------------
-# Custom styles — Francisco Guerrero
+# Custom styles — Ricardo Romo Ríos (Pizarra + Terracota)
 # Extiende la plantilla iPortfolio.
 # --accent se conserva para iconos y rellenos grandes;
 # --accent-text es la variante que sí pasa contraste AA en texto.
 --------------------------------------------------------------*/
 :root {
-  --accent: #149ddd;
-  --accent-text: #0b6d9e;
-  --accent-text-dk: #08557b;
-  --ink: #173b6c;
-  --muted: #5f7391;
-  --line: #e4edf9;
-  --bg-soft: #f5f8fd;
+  --accent: #C96F4A;
+  --accent-text: #9C4E2D;
+  --accent-text-dk: #7A3B21;
+  --ink: #2F3E46;
+  --muted: #66727E;
+  --line: #E9DDD2;
+  --bg-soft: #FAF5EF;
 }
 
 /*--------------------------------------------------------------
@@ -62,7 +62,7 @@ a:hover { color: var(--accent-text-dk); }
   outline: 3px solid var(--accent-text);
   outline-offset: 1px;
   border-color: var(--accent-text);
-  box-shadow: 0 0 0 .2rem rgba(11, 109, 158, .25);
+  box-shadow: 0 0 0 .2rem rgba(156,78,45, .25);
 }
 
 .back-to-top:focus-visible,
@@ -160,7 +160,7 @@ a:hover { color: var(--accent-text-dk); }
   font-size: 11px;
   font-weight: 600;
   color: var(--accent-text);
-  background: #dff3fc;
+  background: #FBE9DD;
   padding: 3px 9px;
   border-radius: 20px;
   vertical-align: middle;
@@ -208,7 +208,7 @@ a:hover { color: var(--accent-text-dk); }
   font-family: "Poppins", sans-serif;
   font-size: 11px;
   font-weight: 500;
-  color: #1f5297;
+  color: #41505B;
   background: #fff;
   border: 1px solid var(--line);
   padding: 4px 10px;
@@ -318,11 +318,11 @@ a:hover { color: var(--accent-text-dk); }
 }
 .agents .count-box span {
   font-size: 48px; line-height: 40px; display: block; font-weight: 700;
-  color: #050d18; margin-left: 60px;
+  color: #1E2A32; margin-left: 60px;
 }
 .agents .count-box p {
   padding: 15px 0 0 0; margin: 0 0 0 60px;
-  font-family: "Raleway", sans-serif; font-size: 14px; color: #122f57;
+  font-family: "Raleway", sans-serif; font-size: 14px; color: #2F3E46;
 }
 
 /*--------------------------------------------------------------
@@ -341,7 +341,7 @@ a:hover { color: var(--accent-text-dk); }
 }
 .agents .agent-card:hover {
   transform: translateY(-4px);
-  border-color: #c3e8fa;
+  border-color: #F0C9B2;
   box-shadow: 0 14px 34px rgba(20, 157, 221, .14);
 }
 .agents .agent-head {
@@ -349,7 +349,7 @@ a:hover { color: var(--accent-text-dk); }
 }
 .agents .agent-icon {
   flex: 0 0 52px; width: 52px; height: 52px; border-radius: 50%;
-  background: #dff3fc; color: var(--accent-text); font-size: 24px;
+  background: #FBE9DD; color: var(--accent-text); font-size: 24px;
   display: flex; align-items: center; justify-content: center;
   transition: background .3s, color .3s;
 }
@@ -362,7 +362,7 @@ a:hover { color: var(--accent-text-dk); }
 .agents .agent-version {
   display: inline-block; margin-top: 8px; font-family: "Poppins", sans-serif;
   font-size: 11px; font-weight: 600; color: var(--accent-text);
-  background: #dff3fc; padding: 3px 10px; border-radius: 20px;
+  background: #FBE9DD; padding: 3px 10px; border-radius: 20px;
 }
 .agents h2.agent-name, .agents .agent-name {
   font-family: "Raleway", sans-serif; font-size: 19px; font-weight: 700;
@@ -390,7 +390,7 @@ a:hover { color: var(--accent-text-dk); }
 }
 .agents .agent-pipeline > span:not(.agent-pipeline-label) {
   font-family: "Poppins", sans-serif; font-size: 10.5px; font-weight: 600;
-  letter-spacing: .3px; color: #1f5297; background: var(--bg-soft);
+  letter-spacing: .3px; color: #41505B; background: var(--bg-soft);
   border: 1px solid var(--line); padding: 4px 9px; border-radius: 4px;
 }
 .agents .agent-foot { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
@@ -414,7 +414,7 @@ a:hover { color: var(--accent-text-dk); }
   padding: 0 0 10px 60px;
   font-size: 18px;
   font-weight: 700;
-  color: #173b6c;
+  color: #2F3E46;
   font-family: "Poppins", sans-serif;
 }
 .contact .info p a { color: var(--accent-text); }
@@ -634,7 +634,7 @@ h3.paper-sub, h4.paper-sub, .paper-sub {
   transition: border-color .3s, box-shadow .3s, transform .3s;
 }
 .especial-card:hover {
-  border-color: #c3e8fa;
+  border-color: #F0C9B2;
   box-shadow: 0 10px 26px rgba(20, 157, 221, .12);
   transform: translateY(-2px);
 }
@@ -844,7 +844,7 @@ a.indice-card:focus-visible { outline: 3px solid var(--accent-text); outline-off
 .back-to-top:hover { background: var(--accent-text-dk); }
 @media (max-width: 991px) { .back-to-top { bottom: 84px; } }
 
-.especial-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(20,157,221,.14); }
+.especial-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(201,111,74,.14); }
 .especial-card:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
 
 /*--------------------------------------------------------------
